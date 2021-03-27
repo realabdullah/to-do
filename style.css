@@ -1,0 +1,82 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-color: hsl(240, 69%, 63%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.task-creation{
+    background-color: hsl(180, 15%, 91%);
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 5px 6px 6px hsl(240, 25%, 53%);
+}
+.task-creation input{
+    padding: 10px;
+    border: 2px solid hsl(240, 76%, 61%);
+    border-radius: 20px;
+    background: transparent;
+}
+.task-creation input:focus{
+    border: 0;
+    border-bottom: 2px solid hsl(240, 76%, 61%);
+    border-radius: 0;
+    outline: 0;
+    background: transparent;
+    transition: 0.5s;
+}
+.error{
+    border-bottom: 2px solid hsl(0, 83%, 44%);
+}
+.task-creation button{
+    padding: 10px 20px;
+    border: 2px solid hsl(240, 76%, 61%);
+    background-color: hsl(240, 56%, 85%);
+    border-radius: 20px;
+    color: hsl(0, 0%, 0%);
+}
+.task-creation button:hover{
+    background: linear-gradient(-90deg, hsl(240, 82%, 59%), hsl(240, 56%, 85%));
+    border: 2px solid hsl(240, 34%, 84%);
+    color: hsl(0, 0%, 100%);
+    cursor: pointer;
+    transition: 0.3s;
+}
+#tasks{
+    display: none;
+    width: 50%;
+    list-style: none;
+    background-color: hsl(180, 15%, 91%);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 5px 6px 6px hsl(240, 25%, 53%);
+}
+ul li{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 15px;
+    border-bottom: 1px solid hsl(0, 0%, 50%);
+}
+ul li p{
+    color: rgb(63, 60, 60);
+}
+.close{
+    background-color: grey;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 55%;
+}
+.close:hover{
+    cursor: pointer;
+}
+.remove{
+    display: none;
+}
