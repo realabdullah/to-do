@@ -3,13 +3,15 @@
     margin: 0;
     padding: 0;
 }
-.container{
+body{
     background-color: hsl(240, 69%, 63%);
+}
+.container{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    margin-top: 17%;
 }
 .task-creation{
     background-color: hsl(180, 15%, 91%);
@@ -55,20 +57,22 @@
     margin-left: 20px;
     margin-top: 15px;
 }
-.desc p{
+.desc label{
     padding-left: 10px;
 }
 textarea{
+    display: none;
     margin-top: 15px;
     padding: 5px;
     border: 2px solid hsl(240, 76%, 61%);
     border-radius: 10px;
 }
 #tasks{
-    /*display: none; */
+    display: none;
     width: 50%;
     list-style: none;
     background-color: hsl(180, 15%, 91%);
+    margin-bottom: 20px;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 5px 6px 6px hsl(240, 25%, 53%);
@@ -92,7 +96,6 @@ ul li p{
 }
 .close{
     font-weight: bolder;
-    margin-top: 35px;
     color: rgb(22, 21, 21);
 }
 .close:hover{
