@@ -27,17 +27,15 @@ function enableBtn(){
 function taskAdd(){
     let storedTask = localStorage.getItem("NewTask");
     if(storedTask == null){
-        taskArray, taskDescription = [];
+        taskArray = [];
     } else {
-        taskArray, taskDescription = JSON.parse(storedTask);
+        taskArray = JSON.parse(storedTask);
     }
     taskArray.push(taskValue.value);
-    taskDescription.push(taskDesc.value);
-    localStorage.setItem("NewTask", JSON.stringify(taskArray, taskDescription));
+    localStorage.setItem("NewTask", JSON.stringify(taskArray));
     showTasks();
     taskValue.value = "";
-    console.log(taskArray); 
-    console.log(taskDescription); 
+    console.log(taskArray);
 }
 
 function showTasks(){
