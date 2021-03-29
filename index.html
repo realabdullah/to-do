@@ -14,12 +14,26 @@
     <div class="container">
         <div class="task-creation">
             <input id="task-input" type="text" placeholder="Enter Your Task">
-            <button id="add-task">Add Task</button>
+            <button id="add-task">Add Task</button><br>
+            <div class="desc">
+                <input type="checkbox">
+                <p>Add Details</p>
+            </div>
+            <textarea name="taskdetails" id="taskdetails" cols="30" rows="10"></textarea>
         </div>
 
         <ul id="tasks">
             <h2>Tasks.</h2>
             
+            <li id="task">
+                <div class="task-info">
+                    <h3>Second task populated</h3>
+                    <p class="task-desc">This a dummy info about the second
+                        task, Lorem ipsum dolor sit amet consectetu illo?
+                    </p>
+                </div>
+                <p id="close" class="close">x</p>
+            </li>
             <!-- <li id="task">
                 <p>Second task populated</p>
                 <p id="close" class="close">x</p>
