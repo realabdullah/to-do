@@ -1,20 +1,14 @@
 const taskValue = document.getElementById("task-input");
 const addTask = document.getElementById("add-task");
-const taskDescription = document.getElementById("taskDescription");
-const taskDesc = document.getElementById("taskdetails");
 const deleteTas = document.querySelector(".close");
 const task = document.querySelector('#task');
 
 addTask.onclick = taskAdd;
 
-function detailsOption() {
-    if (taskDescription.checked == true) {
-        taskDesc.style.display = "block";
-    } else {
-        taskDesc.style.display = "none";
-    }
-}
 
+window.onload = () => {
+    taskArray = JSON.parse(localStorage.getItem('taskArray'));
+}
 
 taskValue.onkeyup = () => {
     var taskName = taskValue.value;
@@ -23,15 +17,6 @@ taskValue.onkeyup = () => {
     } else {
         enableBtn();
     }
-}
-
-function disableBtn() {
-    taskValue.style.borderBottom = "2px solid red";
-    addTask.disabled = true;
-}
-
-function enableBtn() {
-    addTask.disabled = false;
 }
 
 function taskAdd() {
@@ -44,43 +29,32 @@ function taskAdd() {
     var valueOfTask = {};
 
     taskTitle = taskValue.value;
-    taskInfo = taskDesc.value;
 
     valueOfTask.taskTitle = taskTitle;
-    valueOfTask.taskInfo = taskInfo;
 
     taskArray.push(valueOfTask);
     //taskArray.push([taskValue.value],[taskDesc.value]);
     localStorage.setItem("NewTask", JSON.stringify(taskArray));
     showTasks();
     taskValue.value = "";
-    taskDesc.value = "";
+    document.querySelector('#modal').style.display = "none";
     console.log(taskArray);
 }
 
 function showTasks() {
     document.querySelector('#tasks').style.display = "block";
     let newLiTag = "";
-    newLiTag = `<h2>Tasks</h2>`;
+    newLiTag = `<div class="completed-header">
+    <p class="slide-in-elliptic-top-fwd">Tasks</p>
+    </div>`;
     taskArray.forEach((element, index) => {
-        if (taskDescription.checked == true) {
-            newLiTag += `
-            <li id="task">
-                <div class="task-info">
-                    <h3>${element.taskTitle}</h3><br>
-                    <p class="task-desc">${element.taskInfo}</p>
-                </div>
-                <p id="close" class="close" onclick="deleteTask(${index})">x</p>
-            </li>`;
-        } else {
-            newLiTag += `
-            <li id="task">
-                <div class="task-info">
-                    <h3>${element.taskTitle}</h3> 
-                </div>
-                <p id="close" class="close" onclick="deleteTask(${index})">x</p>
-            </li>`;
-        }
+        newLiTag += `
+        <ul id="tasks" class="tasks">
+            <li>
+                <p>${element.taskTitle}</p>
+                <img src="uncomplete.png" id="close" class="close" onclick="deleteTask(${index})" alt="complete">
+            </li>
+        </ul>`;
     });
     document.querySelector('#tasks').innerHTML = newLiTag;
 }
