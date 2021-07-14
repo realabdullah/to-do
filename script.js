@@ -49,7 +49,7 @@ function showTasks() {
     taskArray.forEach((element, index) => {
         newLiTag += `
         <ul id="tasks" class="tasks">
-            <li>
+            <li class="slide-in-elliptic-top-fwd">
                 <p>${element.taskTitle}</p>
                 <img src="uncomplete.png" id="close" class="close" onclick="completedTask(${index})" alt="complete">
             </li>
@@ -72,7 +72,7 @@ function completedTask(index) {
     taskArray.forEach((element, index) => {
         newLiTag += `
         <ul id="uncomplete-tasks" class="uncomplete-tasks">
-            <li>
+            <li class="slide-in-elliptic-top-fwd">
                 <p>${element.taskTitle}</p>
                 <img src="complete.png" id="close" class="close" onclick="deleteTask(${index})" alt="complete">
             </li>
