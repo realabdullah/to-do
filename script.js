@@ -37,7 +37,6 @@ function taskAdd() {
     localStorage.setItem("NewTask", JSON.stringify(taskArray));
     showTasks();
     taskValue.value = "";
-    document.querySelector('#modal').style.display = "none";
     console.log(taskArray);
 }
 
