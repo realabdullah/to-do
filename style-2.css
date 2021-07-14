@@ -11,6 +11,7 @@ body{
 .doit{
     background-color: #131415;
     padding: 20px;
+    height: 100vh;
 }
 
 .doit .header{
@@ -163,7 +164,7 @@ li{
 }
 
 .task-title input:focus{
-    color: #fff;
+    color: #21242A;
     border: none;
 }
 

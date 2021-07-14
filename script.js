@@ -51,11 +51,35 @@ function showTasks() {
         <ul id="tasks" class="tasks">
             <li>
                 <p>${element.taskTitle}</p>
-                <img src="uncomplete.png" id="close" class="close" onclick="deleteTask(${index})" alt="complete">
+                <img src="uncomplete.png" id="close" class="close" onclick="completedTask(${index})" alt="complete">
             </li>
         </ul>`;
     });
     document.querySelector('#tasks').innerHTML = newLiTag;
+}
+
+function completedTask(index) {
+    document.querySelector('#uncomplete-tasks').style.display = "block";
+
+    let storedTask = localStorage.getItem("NewTask");
+    taskArray = JSON.parse(storedTask);
+
+    let newLiTag = "";
+    newLiTag = `<div class="uncompleted-header">
+    <p class="slide-in-elliptic-top-fwd">Completed Tasks</p>
+    </div>`;
+
+    taskArray.forEach((element, index) => {
+        newLiTag += `
+        <ul id="uncomplete-tasks" class="uncomplete-tasks">
+            <li>
+                <p>${element.taskTitle}</p>
+                <img src="complete.png" id="close" class="close" onclick="deleteTask(${index})" alt="complete">
+            </li>
+        </ul>`;
+        taskArray.splice(index, 1);
+    });
+    document.querySelector('#uncomplete-tasks').innerHTML = newLiTag;
 }
 
 function deleteTask(index) {
@@ -66,7 +90,7 @@ function deleteTask(index) {
         taskArray.splice(index, 1);
     }
     localStorage.setItem("NewTask", JSON.stringify(taskArray));
-    showTasks();
+    completedTask();
     hidePane();
 }
 
